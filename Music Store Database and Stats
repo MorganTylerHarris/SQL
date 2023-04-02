@@ -1,0 +1,37 @@
+--Create a music store database
+
+CREATE table store (id INTEGER PRIMARY KEY, item TEXT,  category TEXT, price REAL, monthly_sales INTEGER, monthly_returns INTEGER, warranty_purchased INTEGER);
+INSERT into store VALUES (1, "pick packs", "gear", 1.29, 40, 0, 0);
+INSERT into store VALUES (2, "straps", "gear", 7.50, 12, 1, 0);
+INSERT into store VALUES (3, "acoustic guitar", "instrument", 180, 19, 3, 6);
+INSERT into store VALUES (4, "electric guitar", "instrument", 300, 11, 2, 5);
+INSERT into store VALUES (5, "amplifier", "gear", 500, 7, 1, 4);
+INSERT into store VALUES (6, "drum sticks", "gear", 10.25, 16, 0, 0);
+INSERT into store VALUES (7, "cymbals", "instrument", 400, 9, 1, 5);
+INSERT into store VALUES (8, "microphone", "gear", 80, 14, 2, 8);
+INSERT into store VALUES (9, "bass", "instrument", 220, 9, 2, 3);
+INSERT into store VALUES (10, "interface", "gear", 150, 2, 0, 2);
+INSERT into store VALUES (11, "music stands", "gear", 11, 2, 0, 0);
+INSERT into store VALUES (12, "keyboards", "instrument", 300, 4, 1, 2);
+INSERT into store VALUES (13, "lesson books", "gear", 17, 2, 0, 0);
+INSERT into store VALUES (14, "string packs", "gear", 10.99, 7, 0, 0);
+INSERT into store VALUES (15, "percussion sets", "instrument", 80, 3, 1, 1);
+
+Organizing every item by price range from highest to lowest 
+-
+SELECT * from store ORDER by price desc;
+
+
+What are the top 5 most returned items this month?
+-
+SELECT price, item, monthly_returns from store order by monthly_returns desc limit 5;
+
+
+Which 3 items have had the most warranty’s purchased?
+-
+SELECT price, item, category, warranty_purchased from store order by warranty_purchased desc limit 3;
+
+
+What is the average price of instruments in store?
+-
+SELECT AVG(price) from store where category ="instrument";
